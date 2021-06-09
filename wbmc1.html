@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+#csvTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#csvTable td, #csvTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#csvTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#csvTable tr:hover {background-color: #ddd;}
+
+#csvTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+ </style>
+    <meta charset="UTF-8">
+    <title>"Web Based Motion Control V1.0"</title>
+</head>
+<body>
+<h1>Web Based Motion Control V1.0</h1>
+<label>host:</label><input type="text" id="robot_host" onchange="clrHostReply()" name="host">
+<button onclick="checkHost()">Check</button>  <label  id = host_reply></label>
+<br>
+<!--<img alt="motor_notation" class="center" src="images/motor_notation.png"> -->
+<img alt="motor_notation" class="center" src="{{url_for('static', filename='images/motor_notation.png')}}">
+
+<br>
+<input id="fileinput" type="file"/>
+<br>
+<button  onclick="sendActionAll(1)">Send All</button>
+<button >Stop</button>
+
+<br>
+<button onclick="newRow(-1)">New Row</button>
+<button onclick="clearTable()">Clear table</button>
+
+<table id="csvTable">
+    <tr>
+        <th>Index</th>
+        <th>FLK</th>
+        <th>FLH</th>
+        <th>FRH</th>
+        <th>FRK</th>
+        <th>BLK</th>
+        <th>BLH</th>
+        <th>BRH</th>
+        <th>BRK</th>
+        <th>Delay</th>
+        <th>Note</th>
+        <th>Option</th>
+    </tr>
+</table>
+<script src="static/js/basicFunc.js"></script>
+</body>
+</html>
